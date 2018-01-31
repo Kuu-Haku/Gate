@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+<generatorConfiguration >
+<classPathEntry location="H:/Java/eclipse/workspace/WechatGift/target/WecharGift-0.0.1-SNAPSHOT/WEB-INF/lib/mysql-connector-java-5.1.39.jar" />
+  <context id="context1" >
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://127.0.0.1:3306/wechat" userId="root" password="evangelion" />
+    <javaModelGenerator targetPackage="com.gates.entity" targetProject="Gate/src/main/java" />
+    <sqlMapGenerator targetPackage="com.gates.mapper" targetProject="Gate/src/main/java" />
+    <javaClientGenerator targetPackage="com.gates.dao" targetProject="Gate/src/main/java" type="XMLMAPPER" />
+    <table tableName="w_qrcode" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="true" enableUpdateByExample="false" >
+      <!-- <columnOverride column="???" property="???" /> -->
+    </table>
+    <table tableName="w_operator" enableSelectByExample="false" enableDeleteByExample="false" enableCountByExample="false" selectByExampleQueryId="true" enableUpdateByExample="false" >
+      <!-- <columnOverride column="???" property="???" /> -->
+    </table>
+  </context>
+</generatorConfiguration>
