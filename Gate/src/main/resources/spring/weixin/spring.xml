@@ -6,13 +6,12 @@
                             http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
                             http://cxf.apache.org/jaxrs
                             http://cxf.apache.org/schemas/jaxrs.xsd">  
-    <!-- 自动扫描该包，使SpringMVC认为包下用了@controller注解的类是控制器 -->  
 	<import resource="classpath:META-INF/cxf/cxf.xml" />
     <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
-    <bean id="testService" class="com.gates.serviceImpl.TestServiceImpl"/>
-    <jaxrs:server id="test_server" address="/ts">
+    <bean id="SysEntranceService" class="com.gates.weixin.serviceImpl.SystemEntranceServiceImpl"/>
+    <jaxrs:server id="SysEntrance" address="/weixin">
         <jaxrs:serviceBeans>
-            <ref bean="testService"/>
+            <ref bean="SysEntranceService"/>
         </jaxrs:serviceBeans>
     </jaxrs:server> 
 </beans>
