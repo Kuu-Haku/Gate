@@ -3,6 +3,7 @@ package com.gates.weixin.entity;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
+
 /**
  *	接收消息集合类 
  * @author Kuuhaku
@@ -42,5 +43,11 @@ public class ReceiveMsg extends BaseMsg{
 	}
 	public void setMsgId(String msgId) {
 		this.msgId = msgId;
+	}
+	//生成回复模板
+	public BaseMsg response(BaseMsg entity){
+		entity.setFromUserName(this.getToUserName());
+		entity.setToUserName(this.getFromUserName());
+		return entity;
 	}
 }

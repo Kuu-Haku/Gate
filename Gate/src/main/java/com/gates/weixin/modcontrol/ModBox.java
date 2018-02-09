@@ -1,24 +1,18 @@
-package com.gates.weixin.mod;
+package com.gates.weixin.modcontrol;
 
 import java.util.HashMap;
 import java.util.Map;
 
 import org.springframework.stereotype.Component;
 
+import com.gates.weixin.inter.ModInterface;
+
 @Component
 public class ModBox {
 	private static Map<String,ModInterface> BOX = new HashMap<String,ModInterface>();
-	private static int count = 0;
-	
-	public static int getcount(){
-		return count;
-	}
-	
+	@SuppressWarnings("unused")
 	private static ModBox MODBOX = new ModBox();
-	private ModBox(){
-		count = 1000;
-		System.out.println("box init");
-	}
+	private ModBox(){}
 	public static ModInterface getMod(String modName){
 		return BOX.get(modName);
 	}

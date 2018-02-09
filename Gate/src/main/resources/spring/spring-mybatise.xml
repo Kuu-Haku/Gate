@@ -53,5 +53,20 @@
         class="org.springframework.jdbc.datasource.DataSourceTransactionManager">  
         <property name="dataSource" ref="dataSource" />  
     </bean>  
+    
+    
+    <!-- redis 参数 -->
+    
+    <bean id="redisConfig" class="com.gates.common.Redis_config">  
+        <property name="url" value="${redis_url}" />  
+        <property name="port" value="${redis_port}" />  
+        <property name="password" value="${redis_password}" />
+        <property name="maxWaitMillis" value="${redis_maxWaitMillis}" />
+        <property name="maxTotal" value="${redis_maxTotal}" />  
+        <property name="dbNum" value="${redis_dbNum}" />
+        <property name="open" value="${redis_open}" />
+    </bean>
+    
+    
   
 </beans>

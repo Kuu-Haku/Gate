@@ -7,7 +7,7 @@ import javax.xml.bind.annotation.XmlElement;
 import com.gates.common.WeixinUtils;
 
 //收发信息的基础信息模板
-public class BaseMsg {
+public class BaseMsg{
 	//接收方
 	private String toUserName;
 	//发送方
@@ -56,5 +56,4 @@ public class BaseMsg {
 		sb.append("</xml>");
 		return sb.toString();
 	}
-	
 }

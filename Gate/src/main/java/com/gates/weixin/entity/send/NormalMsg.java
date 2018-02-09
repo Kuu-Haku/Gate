@@ -17,6 +17,12 @@ public class NormalMsg extends BaseMsg{
 	public NormalMsg(){
 		this.setMsgType(MsgType.Text.getName());
 	}
+	
+	public NormalMsg(String msg){
+		this();
+		this.setContent(msg);
+	}
+	
 	public String getContent() {
 		return content;
 	}
