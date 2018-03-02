@@ -5,7 +5,12 @@ import org.apache.commons.lang.StringUtils;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
-
+/**
+ * Redis连接池
+ * @author Kuuhaku
+ *
+ * 2018年3月2日
+ */
 public class RedisUtils {
 	
 	private static JedisPoolConfig jedisPoolConfig = null;
