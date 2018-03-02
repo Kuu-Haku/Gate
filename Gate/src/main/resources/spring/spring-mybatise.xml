@@ -57,7 +57,7 @@
     
     <!-- redis 参数 -->
     
-    <bean id="redisConfig" class="com.gates.common.Redis_config">  
+    <!-- <bean id="redisConfig" class="com.gates.common.RedisConfig">  
         <property name="url" value="${redis_url}" />  
         <property name="port" value="${redis_port}" />  
         <property name="password" value="${redis_password}" />
@@ -65,6 +65,15 @@
         <property name="maxTotal" value="${redis_maxTotal}" />  
         <property name="dbNum" value="${redis_dbNum}" />
         <property name="open" value="${redis_open}" />
+    </bean> -->
+    <bean id="redisConfig" class="com.gates.common.RedisUtils">  
+        <constructor-arg name="url" value="${redis_url}" />  
+        <constructor-arg name="port" value="${redis_port}" />  
+        <constructor-arg name="password" value="${redis_password}" />
+        <constructor-arg name="maxWaitMillis" value="${redis_maxWaitMillis}" />
+        <constructor-arg name="maxTotal" value="${redis_maxTotal}" />  
+        <constructor-arg name="dbNum" value="${redis_dbNum}" />
+        <constructor-arg name="open" value="${redis_open}" />
     </bean>
     
     

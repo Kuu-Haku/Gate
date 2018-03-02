@@ -20,7 +20,7 @@ public class EventMod  implements ModInterface{
 	private EventMod(){
 		ModBox.setMod("event", eventMod);
 	}
-	@Override
+	
 	public String deal(ReceiveMsg msg) {
 		// TODO Auto-generated method stub
 		return "this is eventMod";

@@ -1,13 +1,11 @@
 package com.gates.common;
 
 import org.apache.commons.lang.StringUtils;
-import org.springframework.stereotype.Component;
 
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
 import redis.clients.jedis.JedisPoolConfig;
 
-@Component
 public class RedisUtils {
 	
 	private static JedisPoolConfig jedisPoolConfig = null;
@@ -18,13 +16,46 @@ public class RedisUtils {
 	
 	private static int dbNum = 0;
 	
-	private RedisUtils(){
+	private static String url;
+	
+	private static int port;
+	
+	private static String password;
+	
+	private static int maxWaitMillis;
+	
+	private static int maxTotal;
+	
+	/**
+	 * open值为1开启redis连接池
+	 */
+	private static int open;
+	
+	/**
+	 * 构造器注入初始化参数
+	 * @param url
+	 * @param port
+	 * @param password
+	 * @param maxWaitMillis
+	 * @param maxTotal
+	 * @param dbNum
+	 * @param open
+	 */
+	private RedisUtils(String url, int port, String password,
+			int maxWaitMillis, int maxTotal, int dbNum, int open){
 		try{
+			RedisUtils.url = url;
+			RedisUtils.port = port;
+			RedisUtils.password = password;
+			RedisUtils.maxWaitMillis = maxWaitMillis;
+			RedisUtils.maxTotal = maxTotal;
+			RedisUtils.dbNum = dbNum;
+			RedisUtils.open = open;
 			/**
 			 * 根据配置初始化连接池
 			 */
-			if(Redis_config.getOpen() == 1){
-				init(Redis_config.getUrl(), Redis_config.getPort(), Redis_config.getMaxWaitMillis(), Redis_config.getMaxTotal(), Redis_config.getDbNum(), Redis_config.getPassword());
+			if(open == 1){
+				init(url, port, maxWaitMillis, maxTotal, dbNum, password);
 			}
 		}catch(Exception e){
 			//记录日志
@@ -58,5 +89,61 @@ public class RedisUtils {
 	}
 	public static Jedis getJedis(){
 		return getJedis(dbNum);
+	}
+
+	public static int getDbNum() {
+		return dbNum;
+	}
+
+	public static void setDbNum(int dbNum) {
+		RedisUtils.dbNum = dbNum;
+	}
+
+	public static String getUrl() {
+		return url;
+	}
+
+	public static void setUrl(String url) {
+		RedisUtils.url = url;
+	}
+
+	public static int getPort() {
+		return port;
+	}
+
+	public static void setPort(int port) {
+		RedisUtils.port = port;
+	}
+
+	public static String getPassword() {
+		return password;
+	}
+
+	public static void setPassword(String password) {
+		RedisUtils.password = password;
+	}
+
+	public static int getMaxWaitMillis() {
+		return maxWaitMillis;
+	}
+
+	public static void setMaxWaitMillis(int maxWaitMillis) {
+		RedisUtils.maxWaitMillis = maxWaitMillis;
+	}
+
+	public static int getMaxTotal() {
+		return maxTotal;
+	}
+
+	public static void setMaxTotal(int maxTotal) {
+		RedisUtils.maxTotal = maxTotal;
+	}
+
+	public static int getOpen() {
+		return open;
+	}
+
+	public static void setOpen(int open) {
+		RedisUtils.open = open;
 	}
 }
